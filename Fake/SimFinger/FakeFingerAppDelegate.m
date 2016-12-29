@@ -230,7 +230,8 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
                         NSLog(@"iPhone 6 Landscape");
                     } else if(!landscape) {
 						point.x = 154;
-						point.y = screenRect.size.height - size.height - 267;
+                        //point.y = screenRect.size.height - size.height - 267;
+                        point.y = screenRect.size.height - size.height - 157;
                         NSLog(@"iPhone 4");
                     } else {
 						point.x = 252;
@@ -495,7 +496,8 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	hardwareOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 634, 985) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
+//    hardwareOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 634, 985) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
+    hardwareOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, -110, 634, 985) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
 	[hardwareOverlay setAlphaValue:1.0];
 	[hardwareOverlay setOpaque:NO];
 	[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrame"]]];
@@ -505,7 +507,8 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	
 	screenRect = [[hardwareOverlay screen] frame];
 	
-	pointerOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 50, 50) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
+//    pointerOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 50, 50) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
+    pointerOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, -110, 50, 50) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
 	[pointerOverlay setAlphaValue:0.8];
 	[pointerOverlay setOpaque:NO];
 	[pointerOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"Hover"]]];
